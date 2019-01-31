@@ -1,4 +1,4 @@
-package com.onetrust.mobileConsentCollection;
+package com.onetrust.mobile;
 
 import org.junit.Test;
 

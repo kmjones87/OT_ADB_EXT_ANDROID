@@ -1,7 +1,6 @@
-package com.onetrust.mobileConsentCollection;
+package com.onetrust.mobile;
 
 import com.adobe.marketing.mobile.Event;
-import com.adobe.marketing.mobile.Extension;
 import com.adobe.marketing.mobile.ExtensionApi;
 import com.adobe.marketing.mobile.ExtensionListener;
 

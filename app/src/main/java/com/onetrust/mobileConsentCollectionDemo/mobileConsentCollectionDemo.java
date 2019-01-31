@@ -7,7 +7,7 @@ import android.util.Log;
 import java.util.UUID;
 
 import com.adobe.marketing.mobile.*;
-import com.onetrust.mobileConsentCollection.otsdk_adobe;
+import com.onetrust.mobile.otsdk_adobe;
 
 
 public class mobileConsentCollectionDemo extends Application {

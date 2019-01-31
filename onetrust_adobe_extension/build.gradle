@@ -65,22 +65,7 @@ dependencies {
     implementation 'com.adobe.marketing.mobile:sdk-core:1.+'
 }
 
-task completeRelease (type: Copy){
-    doLast{
-        // Move and rename aar file
-        from ('build/outputs/aar/')
-        include 'mobileConsentCollection-release.aar'
-        destinationDir file('build/OneTrust-Release/')
-        rename 'mobileConsentCollection-release.aar', 'mobileConsentCollection.aar'
 
-        // Move and rename pom file
-        from ('mobileConsentCollection/build/poms/')
-        include 'pom-default.xml'
-        destinationDir file('mobileConsentCollection/build/OneTrust-Release/')
-        rename 'pom-default.xml', 'pom.xml'
-    }
-
-}
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
