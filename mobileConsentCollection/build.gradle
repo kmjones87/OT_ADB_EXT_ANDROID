@@ -5,19 +5,19 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.github.dcendents.android-maven'
 
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'OneTrust-Adobe-Extension'
+    bintrayRepo = 'OneTrust-Adobe-Extension' // Bintray repo name
+    bintrayName = 'otsdk_adobe_Beta_2' // Package name inside above repo. Will create if doesn't exist
 
-    publishedGroupId = 'com.onetrust.mobile'
-    libraryName = 'Beta-Extension'
-    artifact = 'mobileConsentCollection'
+    publishedGroupId = 'com.onetrust.mobile' // Maven approved group ID
+    libraryName = 'Beta-Extension-ot' // Where is this used? JCenter/Maven lookup name?
+    artifact = 'mobileConsentCollection' // artifact/library name
 
     libraryDescription = 'Beta extension for Adobe Launch'
 
     siteUrl = 'https://github.com/kmjones87/OT_ADB_EXT_ANDROID'
     gitUrl = 'https://github.com/kmjones87/OT_ADB_EXT_ANDROID.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.0.2'
 
     developerId = 'OneTrust'
     developerName = 'OneTrust'
@@ -32,15 +32,12 @@ ext {
 android {
     compileSdkVersion 28
 
-
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -48,7 +45,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
     }
 }
 
@@ -68,22 +64,6 @@ dependencies {
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
     implementation 'com.adobe.marketing.mobile:sdk-core:1.+'
 }
-
-/*
-// Generate pom.xml file --> Required for release to Maven Central
-install {
-    repositories.mavenInstaller{
-        pom.project{
-            groupId "com.onetrust.mobileConsentCollection"
-            artifactId "otsdk_adobe"
-            version "1.0.1"
-            name "OneTrust-Adobe-MobileExtension"
-            url "https://onetrust.com"
-        }
-
-    }
-}
-*/
 
 task completeRelease (type: Copy){
     doLast{
