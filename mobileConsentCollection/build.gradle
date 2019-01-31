@@ -1,0 +1,106 @@
+import java.sql.Wrapper
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'OneTrust-Adobe-Extension'
+
+    publishedGroupId = 'com.onetrust.mobile'
+    libraryName = 'Beta-Extension'
+    artifact = 'mobileConsentCollection'
+
+    libraryDescription = 'Beta extension for Adobe Launch'
+
+    siteUrl = 'https://github.com/kmjones87/OT_ADB_EXT_ANDROID'
+    gitUrl = 'https://github.com/kmjones87/OT_ADB_EXT_ANDROID.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'OneTrust'
+    developerName = 'OneTrust'
+    developerEmail = 'support@onetrust.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Default dependencies
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Required for Library to function
+    implementation 'com.android.volley:volley:1.1.1'
+
+    // ADOBE REQUIREMENTS
+    implementation 'com.adobe.marketing.mobile:userprofile:1.+'
+    implementation 'com.adobe.marketing.mobile:sdk-core:1.+'
+}
+
+/*
+// Generate pom.xml file --> Required for release to Maven Central
+install {
+    repositories.mavenInstaller{
+        pom.project{
+            groupId "com.onetrust.mobileConsentCollection"
+            artifactId "otsdk_adobe"
+            version "1.0.1"
+            name "OneTrust-Adobe-MobileExtension"
+            url "https://onetrust.com"
+        }
+
+    }
+}
+*/
+
+task completeRelease (type: Copy){
+    doLast{
+        // Move and rename aar file
+        from ('build/outputs/aar/')
+        include 'mobileConsentCollection-release.aar'
+        destinationDir file('build/OneTrust-Release/')
+        rename 'mobileConsentCollection-release.aar', 'mobileConsentCollection.aar'
+
+        // Move and rename pom file
+        from ('mobileConsentCollection/build/poms/')
+        include 'pom-default.xml'
+        destinationDir file('mobileConsentCollection/build/OneTrust-Release/')
+        rename 'pom-default.xml', 'pom.xml'
+    }
+
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
