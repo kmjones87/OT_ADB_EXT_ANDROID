@@ -17,7 +17,7 @@ ext {
     siteUrl = 'https://github.com/kmjones87/OT_ADB_EXT_ANDROID'
     gitUrl = 'https://github.com/kmjones87/OT_ADB_EXT_ANDROID.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'OneTrust'
     developerName = 'OneTrust'
@@ -58,7 +58,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // Required for Library to function
-    //implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.android.volley:volley:1.1.1'
 
     // ADOBE REQUIREMENTS
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
