@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OT_ADB_EXT_ANDROID.iml" filepath="$PROJECT_DIR$/OT_ADB_EXT_ANDROID.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mobileConsentCollection/mobileConsentCollection.iml" filepath="$PROJECT_DIR$/mobileConsentCollection/mobileConsentCollection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/onetrust_adobe_extension/onetrust_adobe_extension.iml" filepath="$PROJECT_DIR$/onetrust_adobe_extension/onetrust_adobe_extension.iml" />
     </modules>
   </component>
 </project>

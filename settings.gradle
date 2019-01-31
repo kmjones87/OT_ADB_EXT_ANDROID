@@ -1,1 +1,1 @@
-include ':app', ':mobileConsentCollection'
+include ':app', ':onetrust_adobe_extension'

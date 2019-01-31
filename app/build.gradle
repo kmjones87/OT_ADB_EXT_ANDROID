@@ -32,7 +32,7 @@ dependencies {
     implementation 'com.adobe.marketing.mobile:target:1.+'
     implementation 'com.adobe.marketing.mobile:userprofile:1.+'
 
-    implementation project(path: ':mobileConsentCollection')
+    implementation project(path: ':onetrust_adobe_extension')
 
     /* //Causing errors --> unable to resolve dependency
     debugCompile project(path: ':mobileConsentCollection', configuration: 'debug')
